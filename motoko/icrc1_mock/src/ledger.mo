@@ -3,6 +3,7 @@ import AssocList "mo:base/AssocList";
 import Blob "mo:base/Blob";
 import Option "mo:base/Option";
 import Principal "mo:base/Principal";
+import Logo "logo";
 
 actor class ICRC1Ledger() = self {
 
@@ -50,7 +51,7 @@ actor class ICRC1Ledger() = self {
   let decimals : Nat = 2;
   let name : Text = "My toy token";
   let symbol : Text = "MYX";
-  let logo : Text = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJlZCIvPjwvc3ZnPg==";
+  let logo = Logo.icrc1_grey;
 
   // ================ ICRC1 API updates ================
   public shared ({ caller }) func icrc1_transfer(args : TransferArgs) : async ({
