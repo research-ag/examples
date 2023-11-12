@@ -53,7 +53,6 @@ actor class ICRC1Ledger() = self {
   let logo : Text = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJlZCIvPjwvc3ZnPg==";
 
   // ================ ICRC1 API updates ================
-  public shared func icrc1_balance_of(account : AccountRefOpt) : async Nat = async getBalance(account);
   public shared ({ caller }) func icrc1_transfer(args : TransferArgs) : async ({
     #Ok : Nat;
     #Err : TransferError;
@@ -84,6 +83,7 @@ actor class ICRC1Ledger() = self {
   };
 
   // ================ ICRC1 API queries ================
+  public shared query func icrc1_balance_of(account : AccountRefOpt) : async Nat = async getBalance(account);
   public shared query func icrc1_fee() : async Nat = async fee;
   public shared query func icrc1_decimals() : async Nat = async 2;
   public shared query func icrc1_name() : async Text = async name;
