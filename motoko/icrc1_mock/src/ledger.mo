@@ -51,7 +51,7 @@ actor class ICRC1Ledger() = self {
   let decimals : Nat = 2;
   let name : Text = "My toy token";
   let symbol : Text = "MYX";
-  let logo = Logo.icrc1_grey;
+  let logo = Logo.icrc1_coin[1];
 
   // ================ ICRC1 API updates ================
   public shared ({ caller }) func icrc1_transfer(args : TransferArgs) : async ({
@@ -92,7 +92,7 @@ actor class ICRC1Ledger() = self {
   type Value = { #Nat : Nat; #Int : Int; #Text : Text; #Blob : Blob };
   public shared query func icrc1_metadata() : async [(Text, Value)] = async [
     ("icrc1:symbol", #Text symbol),
-    ("icrc1:decimals", #Nat decimals),
+//    ("icrc1:decimals", #Nat decimals),
     ("icrc1:name", #Text name),
     ("icrc1:logo", #Text logo),
   ];
