@@ -92,7 +92,7 @@ actor class ICRC1Ledger() = self {
   type Value = { #Nat : Nat; #Int : Int; #Text : Text; #Blob : Blob };
   public shared query func icrc1_metadata() : async [(Text, Value)] = async [
     ("icrc1:symbol", #Text symbol),
-//    ("icrc1:decimals", #Nat decimals),
+    ("icrc1:decimals", #Nat decimals),
     ("icrc1:name", #Text name),
     ("icrc1:logo", #Text logo),
   ];
