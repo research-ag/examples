@@ -3,6 +3,7 @@ import AssocList "mo:base/AssocList";
 import Blob "mo:base/Blob";
 import Option "mo:base/Option";
 import Principal "mo:base/Principal";
+import Logo "logo";
 
 actor class ICRC1Ledger() = self {
 
@@ -50,10 +51,9 @@ actor class ICRC1Ledger() = self {
   let decimals : Nat = 2;
   let name : Text = "My toy token";
   let symbol : Text = "MYX";
-  let logo : Text = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJlZCIvPjwvc3ZnPg==";
+  let logo = Logo.icrc1_coin[1];
 
   // ================ ICRC1 API updates ================
-  public shared func icrc1_balance_of(account : AccountRefOpt) : async Nat = async getBalance(account);
   public shared ({ caller }) func icrc1_transfer(args : TransferArgs) : async ({
     #Ok : Nat;
     #Err : TransferError;
@@ -84,6 +84,7 @@ actor class ICRC1Ledger() = self {
   };
 
   // ================ ICRC1 API queries ================
+  public shared query func icrc1_balance_of(account : AccountRefOpt) : async Nat = async getBalance(account);
   public shared query func icrc1_fee() : async Nat = async fee;
   public shared query func icrc1_decimals() : async Nat = async 2;
   public shared query func icrc1_name() : async Text = async name;
