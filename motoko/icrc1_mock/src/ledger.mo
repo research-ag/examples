@@ -89,6 +89,9 @@ actor class ICRC1Ledger() = self {
   public shared query func icrc1_decimals() : async Nat = async 2;
   public shared query func icrc1_name() : async Text = async name;
   public shared query func icrc1_symbol() : async Text = async symbol;
+  public shared query func icrc1_supported_standards() : async [{ name : Text; url : Text }] {
+    [{ name = "ICRC-1"; url = "https://github.com/dfinity/ICRC-1" }]
+  };
   type Value = { #Nat : Nat; #Int : Int; #Text : Text; #Blob : Blob };
   public shared query func icrc1_metadata() : async [(Text, Value)] = async [
     ("icrc1:symbol", #Text symbol),
