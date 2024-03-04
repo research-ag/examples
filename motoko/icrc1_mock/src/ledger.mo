@@ -86,7 +86,7 @@ actor class ICRC1Ledger() = self {
   // ================ ICRC1 API queries ================
   public shared query func icrc1_balance_of(account : AccountRefOpt) : async Nat = async getBalance(account);
   public shared query func icrc1_fee() : async Nat = async fee;
-  public shared query func icrc1_decimals() : async Nat = async 2;
+  public shared query func icrc1_decimals() : async Nat8 = async 2;
   public shared query func icrc1_name() : async Text = async name;
   public shared query func icrc1_symbol() : async Text = async symbol;
   public shared query func icrc1_supported_standards() : async [{ name : Text; url : Text }] {
